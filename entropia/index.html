@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física General III - Semana 16 | Termodinámica</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Navegación lateral -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>📚 Contenido</h2>
+            <button class="close-sidebar" id="closeSidebar">×</button>
+        </div>
+        <ul class="nav-menu" id="navMenu"></ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <div class="header-content">
+                <h1 class="title">Física General III</h1>
+                <p class="subtitle">Semana 16: Procesos reversibles, irreversibles, ciclo de Carnot y Entropía</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </header>
+
+        <!-- Página de Introducción -->
+        <section class="intro-section" id="introSection">
+            <div class="intro-content">
+                <h2 class="intro-title">Semana 16</h2>
+                <h3 class="intro-subtitle">Procesos reversibles, irreversibles, ciclo de Carnot y Entropía</h3>
+                
+                <div class="intro-description">
+                    <p>En esta semana exploraremos conceptos fundamentales de la termodinámica que nos ayudarán a entender por qué los procesos naturales tienen una dirección y cuáles son los límites teóricos de las máquinas térmicas.</p>
+                    
+                    <div class="intro-topics">
+                        <h4>En esta sesión estudiarás:</h4>
+                        <ul class="topics-list">
+                            <li>📖 <strong>¿Por qué la primera ley no es suficiente?</strong> - Limitaciones de la conservación de energía</li>
+                            <li>⚖️ <strong>Procesos reversibles e irreversibles</strong> - La diferencia entre lo ideal y lo real</li>
+                            <li>⚡ <strong>La Segunda Ley de la Termodinámica</strong> - Los límites del mundo real</li>
+                            <li>🔄 <strong>El ciclo de Carnot</strong> - La máquina térmica perfecta</li>
+                            <li>🧭 <strong>Entropía</strong> - La brújula del universo</li>
+                        </ul>
+                    </div>
+
+                    <div class="scroll-indicator">
+                        <p class="scroll-text">Desliza hacia abajo para iniciar</p>
+                        <div class="scroll-arrow">↓</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secciones del contenido -->
+        <div class="content-container">
+            
+            <!-- Sección 1: Primera Ley -->
+            <section class="content-section" id="section-1" data-section="1">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <div>
+                        <h2>¿Por qué la primera ley no es suficiente?</h2>
+                        <span class="section-icon">❓</span>
+                    </div>
+                </div>
+                
+                <div class="content-body">
+                    <p class="lead">Podemos tener muchísima energía en un sistema, pero aun así ser incapaces de transformarla completamente en trabajo.</p>
+                    
+                    <div class="question-box">
+                        <p><strong>¿Y por qué, si la energía total permanece igual, el mundo parece avanzar siempre hacia un mismo sentido?</strong></p>
+                    </div>
+
+                    <p>Siempre vemos que los procesos avanzan en una sola dirección natural:</p>
+                    
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <div class="example-icon">🔥</div>
+                            <p>El calor pasa de caliente a frío, nunca al revés.</p>
+                        </div>
+                        <div class="example-card">
+                            <div class="example-icon">☕</div>
+                            <p>Una taza caliente se enfría sola, pero nunca se recalienta sola.</p>
+                        </div>
+                        <div class="example-card">
+                            <div class="example-icon">💨</div>
+                            <p>El perfume se dispersa por la habitación, pero nunca regresa al frasco.</p>
+                        </div>
+                        <div class="example-card">
+                            <div class="example-icon">🍶</div>
+                            <p>Un vaso puede romperse, pero los pedazos no se reconstruyen solos.</p>
+                        </div>
+                    </div>
+
+                    <div class="insight-box">
+                        <p><strong>Todos estos procesos tienen algo en común:</strong> avanzan en una sola dirección natural, incluso si la energía total permanece igual.</p>
+                        <p>Esto no lo puede explicar la Primera Ley, porque desde su punto de vista toda transformación es perfectamente reversible siempre que la energía se conserve.</p>
+                    </div>
+
+                    <div class="conclusion-box">
+                        <p>Esa <strong>"dirección natural"</strong> de los procesos es justamente lo que describe la <strong>Segunda Ley de la Termodinámica</strong>. Es ella quien impone el orden (o mejor dicho, el desorden) del universo y establece los límites reales de cualquier proceso y cuánta energía útil podemos realmente obtener.</p>
+                    </div>
+                </div>
+
+                <!-- Pregunta de verificación -->
+                <div class="verification-quiz">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>📝 Verifica tu comprensión</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="quiz-question">
+                                <p class="quiz-question-text">¿Por qué la Primera Ley de la Termodinámica no puede explicar la dirección natural de los procesos?</p>
+                                <div class="quiz-options">
+                                    <button class="quiz-option" data-correct="false">Porque no considera la conservación de la energía</button>
+                                    <button class="quiz-option" data-correct="true">Porque no distingue entre energía útil y energía dispersa</button>
+                                    <button class="quiz-option" data-correct="false">Porque solo aplica a sistemas cerrados</button>
+                                    <button class="quiz-option" data-correct="false">Porque no considera la temperatura</button>
+                                </div>
+                                <div class="quiz-explanation">
+                                    <p><strong>Correcto!</strong> La Primera Ley solo nos dice que la energía se conserva, pero no nos indica qué tan útil es esa energía. No puede explicar por qué los procesos avanzan en una sola dirección natural, ya que desde su perspectiva toda transformación es reversible si la energía se conserva. Es la Segunda Ley la que explica esta "dirección natural" mediante el concepto de entropía.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Procesos reversibles e irreversibles -->
+            <section class="content-section" id="section-2" data-section="2">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <div>
+                        <h2>Procesos reversibles e irreversibles</h2>
+                        <span class="section-icon">⚖️</span>
+                    </div>
+                </div>
+
+                <div class="content-body">
+                    <p class="lead">En termodinámica, no todos los procesos son iguales. Algunos representan un ideal perfecto que nos permite entender los límites de la naturaleza (Procesos reversibles); otros describen el comportamiento real del mundo tal como lo observamos (procesos irreversibles).</p>
+
+                    <div class="analogy-box">
+                        <h3>Analogía</h3>
+                        <div class="analogy-cards">
+                            <div class="analogy-card irreversible">
+                                <div class="analogy-icon">🚴</div>
+                                <h4>Irreversible</h4>
+                                <p>Como bajar en bici cuesta abajo con los frenos puestos: siempre pierde energía y velocidad.</p>
+                            </div>
+                            <div class="analogy-card reversible">
+                                <div class="analogy-icon">⛸️</div>
+                                <h4>Reversible</h4>
+                                <p>Como deslizarse en patines sobre hielo perfectamente liso: nada te frena. Se minimiza la pérdida de energía.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>2.1 Proceso reversible</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Un proceso reversible es una construcción idealizada:</p>
+                                <ul class="feature-list">
+                                    <li>No hay fricción, ni pérdidas, ni turbulencia.</li>
+                                    <li>Cada cambio ocurre de manera infinitamente lenta, casi imperceptible.</li>
+                                    <li>No se genera entropía.</li>
+                                    <li>Y, aunque es tremendamente útil para el análisis, jamás ocurre en la naturaleza.</li>
+                                </ul>
+                                <div class="highlight-box">
+                                    <p>En un proceso reversible, el sistema siempre está tan cerca del equilibrio que podría desandar cada paso sin dejar rastro. Es como si el universo no "notara" que algo ocurrió.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>2.2 Proceso irreversible</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>En contraste, los procesos irreversibles son los que realmente vemos a nuestro alrededor:</p>
+                                <ul class="feature-list">
+                                    <li>Hay rozamiento, colisiones, turbulencia.</li>
+                                    <li>El calor fluye con diferencias de temperatura finitas.</li>
+                                    <li>El sistema se aleja del equilibrio.</li>
+                                    <li>Y siempre generan entropía.</li>
+                                </ul>
+                                <div class="highlight-box">
+                                    <p>Aquí, el universo sí "se da cuenta" de lo que pasó: parte de la energía útil se dispersa, y el proceso no puede deshacerse espontáneamente. Este es, literalmente, el comportamiento natural del universo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>2.3 ¿Por qué importa esta diferencia?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Esta distinción no es un simple detalle técnico:</p>
+                                <div class="comparison-cards">
+                                    <div class="comparison-card">
+                                        <h4>Procesos reversibles</h4>
+                                        <p>Nos sirven como referencia para calcular la eficiencia máxima que podría tener una máquina térmica. Son el "techo ideal" del rendimiento.</p>
+                                    </div>
+                                    <div class="comparison-card">
+                                        <h4>Procesos irreversibles</h4>
+                                        <p>Explican por qué en la vida real siempre perdemos parte de la energía útil y por qué ninguna máquina, por perfecta que sea, puede alcanzar el rendimiento máximo (definido por el ciclo de Carnot).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta de verificación -->
+                <div class="verification-quiz">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>📝 Verifica tu comprensión</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="quiz-question">
+                                <p class="quiz-question-text">¿Cuál es la principal diferencia entre un proceso reversible y uno irreversible?</p>
+                                <div class="quiz-options">
+                                    <button class="quiz-option" data-correct="false">Los procesos reversibles son más rápidos</button>
+                                    <button class="quiz-option" data-correct="false">Los procesos irreversibles no conservan energía</button>
+                                    <button class="quiz-option" data-correct="true">Los procesos reversibles no generan entropía, los irreversibles sí</button>
+                                    <button class="quiz-option" data-correct="false">Los procesos reversibles ocurren en la naturaleza, los irreversibles no</button>
+                                </div>
+                                <div class="quiz-explanation">
+                                    <p><strong>Correcto!</strong> La diferencia clave es que los procesos reversibles son ideales que no generan entropía (no hay fricción, pérdidas ni diferencias finitas de temperatura), mientras que los procesos irreversibles, que son los que realmente ocurren en la naturaleza, siempre generan entropía. Los procesos reversibles son útiles como referencia teórica para calcular eficiencias máximas, pero jamás ocurren en la realidad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Segunda Ley -->
+            <section class="content-section" id="section-3" data-section="3">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <div>
+                        <h2>La Segunda Ley de la Termodinámica</h2>
+                        <span class="section-icon">⚡</span>
+                    </div>
+                </div>
+
+                <div class="content-body">
+                    <p class="lead">La Segunda Ley es la regla que le pone límites al mundo real. Mientras la Primera Ley nos dice que la energía total se conserva, la Segunda Ley nos recuerda algo más profundo: no toda esa energía puede transformarse en trabajo útil.</p>
+
+                    <div class="statements-grid">
+                        <div class="statement-card">
+                            <div class="statement-header">
+                                <h3>Enunciado de Kelvin-Planck</h3>
+                                <span class="statement-icon">🌡️</span>
+                            </div>
+                            <div class="statement-content">
+                                <p>Una máquina térmica jamás puede convertir todo el calor que recibe en trabajo.</p>
+                                <p>Siempre habrá una parte que se libera al ambiente.</p>
+                                <p class="statement-conclusion"><strong>No existe el motor perfecto.</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="statement-card">
+                            <div class="statement-header">
+                                <h3>Enunciado de Clausius</h3>
+                                <span class="statement-icon">❄️</span>
+                            </div>
+                            <div class="statement-content">
+                                <p>El calor no fluye espontáneamente de un cuerpo frío a uno caliente.</p>
+                                <p>Para que eso ocurra, es necesario realizar trabajo externo (un refrigerador, por ejemplo).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="unified-statement">
+                        <p>Aunque suenen distintos, ambos enunciados dicen lo mismo:</p>
+                        <p class="unified-text"><strong>No existen procesos 100% eficientes porque toda transformación real genera entropía.</strong></p>
+                    </div>
+
+                    <div class="entropy-intro">
+                        <h3>La entropía es la "huella" de irreversibilidad del universo:</h3>
+                        <ul class="entropy-list">
+                            <li>En un proceso reversible, la entropía total no cambia.</li>
+                            <li>En un proceso irreversible, la entropía del universo aumenta.</li>
+                            <li>Nunca disminuye.</li>
+                        </ul>
+                        <p>Esta es la razón por la que el mundo tiene una dirección natural y por la que ninguna máquina puede superar un límite teórico de eficiencia.</p>
+                        <div class="question-box">
+                            <p>Y si existe un límite impuesto por la naturaleza... una pregunta surge sola:</p>
+                            <p class="question-text"><strong>¿Cuál sería la máquina más eficiente que podría imaginarse sin violar ninguna ley física?</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta de verificación -->
+                <div class="verification-quiz">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>📝 Verifica tu comprensión</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="quiz-question">
+                                <p class="quiz-question-text">Según el enunciado de Kelvin-Planck de la Segunda Ley, ¿qué es imposible?</p>
+                                <div class="quiz-options">
+                                    <button class="quiz-option" data-correct="false">Que una máquina térmica convierta trabajo en calor</button>
+                                    <button class="quiz-option" data-correct="true">Que una máquina térmica convierta todo el calor recibido en trabajo</button>
+                                    <button class="quiz-option" data-correct="false">Que el calor fluya de un cuerpo caliente a uno frío</button>
+                                    <button class="quiz-option" data-correct="false">Que la energía se conserve en un proceso</button>
+                                </div>
+                                <div class="quiz-explanation">
+                                    <p><strong>Correcto!</strong> El enunciado de Kelvin-Planck establece que es imposible que una máquina térmica convierta todo el calor que recibe en trabajo. Siempre debe liberar parte del calor al ambiente. Esto significa que no existe el "motor perfecto" con eficiencia del 100%. Esta limitación existe porque toda transformación real genera entropía.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 4: Ciclo de Carnot -->
+            <section class="content-section" id="section-4" data-section="4">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <div>
+                        <div class="title-with-image">
+                            <h2>El ciclo de Carnot</h2>
+                            <img src="Sadi_Carnot.jpeg" alt="Sadi Carnot" class="carnot-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-body">
+                    <div class="question-box">
+                        <h3>¿Por qué existe el ciclo de Carnot?</h3>
+                    </div>
+
+                    <p>Después de comprender que ningún proceso puede ser 100% eficiente (Segunda Ley), surge una pregunta natural:</p>
+                    <p class="lead"><strong>¿Cuál es el máximo rendimiento que una máquina térmica podría alcanzar sin violar las leyes de la naturaleza?</strong></p>
+
+                    <div class="carnot-intro">
+                        <p>El ingeniero francés <strong>Sadi Carnot (1796-1832)</strong> contestó esta pregunta en 1824, cuando desarrolló una máquina térmica idealizada hipotética con la máxima eficiencia posible, congruente con la segunda ley. El ciclo de esta máquina se denomina ciclo de Carnot.</p>
+                        
+                        <p>En la siguiente imagen se muestra un esquema del ciclo de Carnot aplicado a una máquina térmica que funciona con un gas ideal.</p>
+                        
+                        <div class="carnot-diagram">
+                            <img src="Ciclo de carnot.png" alt="Esquema del ciclo de Carnot" class="carnot-scheme">
+                        </div>
+                        
+                        <p>El ciclo de Carnot está compuesto únicamente por procesos totalmente reversibles:</p>
+                        
+                        <div class="carnot-features">
+                            <div class="feature-tag">Sin fricción</div>
+                            <div class="feature-tag">Sin turbulencia</div>
+                            <div class="feature-tag">Sin pérdidas</div>
+                            <div class="feature-tag">Con diferencias infinitesimales de temperatura</div>
+                        </div>
+
+                        <div class="insight-box">
+                            <p>Un ciclo así jamás podría existir en el mundo real, pero es invaluable porque nos permite fijar un punto de referencia:</p>
+                            <p class="conclusion-text"><strong>El ciclo de Carnot marca el "techo máximo" de eficiencia permitido por la Segunda Ley. Ninguna máquina térmica real puede superarlo.</strong></p>
+                        </div>
+
+                        <p>Este concepto une todo lo estudiado:</p>
+                        <ul>
+                            <li>La irreversibilidad genera entropía.</li>
+                            <li>La generación de entropía reduce la energía útil.</li>
+                            <li>Por eso, cuanto más se aleja una máquina de la reversibilidad, menor será su eficiencia.</li>
+                        </ul>
+                        <p class="conclusion-text"><strong>El ciclo de Carnot no es un motor, sino una regla del universo para recordarnos hasta dónde podemos llegar.</strong></p>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>¿Cómo hizo Carnot para que esto ocurriera?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Carnot no construyó un motor físico con piezas reales; lo que hizo fue imaginar un ciclo perfectamente controlado, diseñado paso a paso para evitar cualquier fuente de irreversibilidad.</p>
+                                
+                                <p>Para lograrlo, estableció cuatro principios clave:</p>
+
+                                <div class="carnot-principles">
+                                    <div class="principle-card">
+                                        <div class="principle-number">1</div>
+                                        <div class="principle-content">
+                                            <h4>Usó solo procesos reversibles</h4>
+                                            <p>Carnot se dio cuenta de que la única forma de no generar entropía es evitar cualquier pérdida, fricción o choque brusco.</p>
+                                            <p>Por eso seleccionó únicamente procesos que pudieran ejecutarse al límite del equilibrio:</p>
+                                            <ul>
+                                                <li>Dos procesos <strong>isotérmicos</strong> (a temperatura constante)</li>
+                                                <li>Dos procesos <strong>adiabáticos</strong> (sin intercambio de calor)</li>
+                                            </ul>
+                                            <p>Estos cuatro procesos son los únicos que pueden hacerse reversibles con suficiente control.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="principle-card">
+                                        <div class="principle-number">2</div>
+                                        <div class="principle-content">
+                                            <h4>Eliminó la fricción y la turbulencia</h4>
+                                            <p>En su modelo:</p>
+                                            <ul>
+                                                <li>No hay fricción entre el pistón y el cilindro.</li>
+                                                <li>No hay rozamiento interno entre moléculas.</li>
+                                                <li>No hay turbulencias en el flujo del gas.</li>
+                                            </ul>
+                                            <p>Cada movimiento es suave, cuasiestático y perfectamente controlado. Así garantiza que toda la energía invertida pueda recuperarse en la etapa opuesta del ciclo.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="principle-card">
+                                        <div class="principle-number">3</div>
+                                        <div class="principle-content">
+                                            <h4>Hizo que el calor fluyera con diferencias infinitesimales de temperatura</h4>
+                                            <p>Carnot entendió que si el calor pasa de un reservorio caliente a un gas a mucha diferencia de temperatura:</p>
+                                            <ul>
+                                                <li>El proceso es rápido, pero irreversible.</li>
+                                                <li>Se genera entropía.</li>
+                                            </ul>
+                                            <p>Para evitar esto, imaginó un proceso donde:</p>
+                                            <ul>
+                                                <li>El gas se mantiene exactamente a la misma temperatura que el reservorio mientras recibe o cede calor.</li>
+                                                <li>No existe un salto brusco de temperatura.</li>
+                                            </ul>
+                                            <p>Es decir, el flujo de calor ocurre en equilibrio dinámico, sin irreversibilidades.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="principle-card">
+                                        <div class="principle-number">4</div>
+                                        <div class="principle-content">
+                                            <h4>Diseñó un ciclo cerrado que regresa exactamente al estado inicial</h4>
+                                            <p>Al finalizar el ciclo:</p>
+                                            <ul>
+                                                <li>La energía interna del sistema vuelve a su valor original.</li>
+                                                <li>El sistema no tiene "memoria" del proceso.</li>
+                                                <li>Todo lo que ocurrió pudo revertirse perfectamente.</li>
+                                            </ul>
+                                            <p>Esto permite calcular la eficiencia ideal del motor sin incluir pérdidas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="summary-box">
+                                    <h4>En resumen: cómo logró Carnot su ciclo perfecto</h4>
+                                    <p>Carnot combinó cuatro detalles ideales:</p>
+                                    <ol>
+                                        <li>Procesos isotérmicos y adiabáticos cuidadosamente seleccionados.</li>
+                                        <li>Operación cuasiestática: infinitamente lenta, sin fricción, sin saltos bruscos.</li>
+                                        <li>Transferencias de calor sin diferencias finitas de temperatura.</li>
+                                        <li>Un ciclo perfectamente cerrado y reversible.</li>
+                                    </ol>
+                                    <p class="conclusion-text"><strong>Gracias a este diseño, creó un ciclo que no genera entropía y, por lo tanto, tiene la eficiencia máxima que cualquier máquina térmica puede aspirar a tener.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-section">
+                        <h3>4.3 La fórmula de eficiencia de Carnot</h3>
+                        <p>El ciclo de Carnot no solo define un motor ideal: también nos entrega una fórmula extraordinariamente simple para calcular la eficiencia máxima que cualquier máquina térmica puede alcanzar, sin importar su diseño.</p>
+                        
+                        <div class="formula-card-large">
+                            <div class="formula-title">Eficiencia de Carnot</div>
+                            <div class="formula-large">\[\eta_{\text{Carnot}} = 1 - \frac{T_C}{T_H}\]</div>
+                            <div class="formula-vars">
+                                <p><strong>$\eta_{\text{Carnot}}$</strong>: Eficiencia máxima teórica</p>
+                                <p><strong>$T_H$</strong>: Temperatura del reservorio caliente (K)</p>
+                                <p><strong>$T_C$</strong>: Temperatura del reservorio frío (K)</p>
+                            </div>
+                        </div>
+
+                        <div class="formula-explanation">
+                            <h4>¿Qué nos dice esta fórmula?</h4>
+                            <ul>
+                                <li>Solo depende de las temperaturas del reservorio caliente ($T_H$) y del reservorio frío ($T_C$).</li>
+                                <li>No importa el tipo de gas, ni el tamaño del motor, ni la tecnología utilizada.</li>
+                                <li>Es un límite máximo teórico, una frontera que ninguna máquina real puede sobrepasar.</li>
+                                <li>Para tener una máquina con eficiencia igual a 1 (100%) necesitaríamos un reservorio frío a 0 K, algo físicamente inalcanzable.</li>
+                            </ul>
+                            <div class="insight-box">
+                                <p>Este resultado captura de forma elegante lo que la Segunda Ley nos había insinuado:</p>
+                                <p class="conclusion-text"><strong>La naturaleza siempre cobra un impuesto llamado entropía. Por eso, la eficiencia de Carnot nunca puede ser igual a 1.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="refrigerator-section">
+                        <h3>4.4 Refrigerador de Carnot (ciclo invertido)</h3>
+                        
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span>Refrigerador de Carnot</span>
+                                    <span class="accordion-icon">▼</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <p>El ciclo de Carnot puede invertirse para funcionar como refrigerador o bomba de calor.</p>
+                                    
+                                    <div class="formula-card-large">
+                                        <div class="formula-title">Coeficiente de rendimiento de Carnot</div>
+                                        <div class="formula-large">\[K_{\text{Carnot}} = \frac{T_C}{T_H - T_C}\]</div>
+                                        <div class="formula-vars">
+                                            <p><strong>$K_{\text{Carnot}}$</strong>: Coeficiente de rendimiento</p>
+                                            <p><strong>$T_H$</strong>: Temperatura del reservorio caliente (K)</p>
+                                            <p><strong>$T_C$</strong>: Temperatura del reservorio frío (K)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="cop-explanation">
+                                        <h4>¿Para qué sirve este coeficiente?</h4>
+                                        <p>El coeficiente de rendimiento $K_{\text{Carnot}}$ mide la eficiencia de un refrigerador o bomba de calor. Indica cuánto calor se puede extraer del reservorio frío por cada unidad de trabajo suministrado. Un valor alto de $K_{\text{Carnot}}$ significa que el sistema es más eficiente, es decir, puede transferir más calor con menos trabajo.</p>
+                                        <ul>
+                                            <li><strong>Alto $K_{\text{Carnot}}$</strong> → diferencias pequeñas de temperatura (mayor eficiencia)</li>
+                                            <li><strong>Bajo $K_{\text{Carnot}}$</strong> → diferencias grandes de temperatura (menor eficiencia)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-section">
+                        <h3>4.5 Relación con los procesos reversibles</h3>
+                        
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span>Relación con los procesos reversibles</span>
+                                    <span class="accordion-icon">▼</span>
+                                </button>
+                            <div class="accordion-content">
+                                <p>Carnot construyó su ciclo utilizando solo procesos reversibles, y eso no es un detalle menor: la eficiencia máxima solo se alcanza cuando no se genera entropía en ninguna etapa.</p>
+                                
+                                <div class="question-box">
+                                    <p><strong>¿Qué significa esto en la práctica?</strong></p>
+                                </div>
+
+                                <p>Si un motor térmico presenta:</p>
+                                <ul>
+                                    <li>fricción,</li>
+                                    <li>turbulencia,</li>
+                                    <li>pérdidas de calor,</li>
+                                    <li>diferencias grandes de temperatura durante las transferencias,</li>
+                                </ul>
+                                <p>entonces ya no es un ciclo de Carnot, y su eficiencia cae automáticamente.</p>
+                                
+                                <div class="insight-box">
+                                    <p><strong>Cuanta más irreversibilidad haya, más energía útil se pierde.</strong></p>
+                                    <p class="conclusion-text">En pocas palabras: <strong>La reversibilidad es la llave que abre la puerta al rendimiento máximo.</strong></p>
+                                </div>
+
+                                <div class="transition-box">
+                                    <p>Si la eficiencia máxima está limitada por la generación de desorden...</p>
+                                    <p>→ necesitamos una forma cuantitativa de medir ese desorden.</p>
+                                    <p>→ Eso nos lleva directamente al siguiente concepto: <strong>la entropía</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta de verificación -->
+                <div class="verification-quiz">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>📝 Verifica tu comprensión</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="quiz-question">
+                                <p class="quiz-question-text">La eficiencia de Carnot ($\eta_{\text{Carnot}} = 1 - \frac{T_C}{T_H}$) nos dice que:</p>
+                                <div class="quiz-options">
+                                    <button class="quiz-option" data-correct="false">Cualquier máquina puede alcanzar esta eficiencia</button>
+                                    <button class="quiz-option" data-correct="false">La eficiencia depende del tipo de gas utilizado</button>
+                                    <button class="quiz-option" data-correct="true">Es el límite máximo teórico que ninguna máquina real puede superar</button>
+                                    <button class="quiz-option" data-correct="false">Solo aplica a máquinas con fricción</button>
+                                </div>
+                                <div class="quiz-explanation">
+                                    <p><strong>Correcto!</strong> La eficiencia de Carnot representa el límite máximo teórico de eficiencia que cualquier máquina térmica puede alcanzar, sin importar su diseño, el tipo de gas o la tecnología utilizada. Solo depende de las temperaturas de los reservorios. Ninguna máquina real puede superar este límite porque siempre hay irreversibilidades (fricción, pérdidas de calor, etc.) que reducen la eficiencia por debajo del valor de Carnot.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 5: Entropía -->
+            <section class="content-section" id="section-5" data-section="5">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <div>
+                        <h2>Entropía: la brújula del universo</h2>
+                        <span class="section-icon">🧭</span>
+                    </div>
+                </div>
+
+                <div class="content-body">
+                    <p class="lead">La entropía es la magnitud que nos permite medir cuánto se dispersa la energía y cuánta se vuelve "menos útil" para producir trabajo.</p>
+
+                    <div class="entropy-rules">
+                        <div class="rule-card">
+                            <div class="rule-icon">📈</div>
+                            <p>A mayor dispersión → mayor entropía</p>
+                        </div>
+                        <div class="rule-card">
+                            <div class="rule-icon">📉</div>
+                            <p>A menor dispersión → menor entropía</p>
+                        </div>
+                    </div>
+
+                    <div class="insight-box">
+                        <p>Y como vimos, la Segunda Ley nos dice que <strong>la entropía del universo nunca disminuye</strong>.</p>
+                    </div>
+
+                    <div class="calculation-section">
+                        <h3>6.2 ¿Cómo se calcula el cambio de entropía?</h3>
+                        <p>El cálculo del cambio de entropía depende directamente de cómo entra o sale el calor del sistema y de si la temperatura permanece constante o varía durante el proceso.</p>
+                        
+                        <div class="formula-card-large">
+                            <div class="formula-title">Definición fundamental</div>
+                            <div class="formula-large">\[\mathrm{d}Q = \frac{\mathrm{d}S}{T}\]</div>
+                            <div class="formula-vars">
+                                <p><strong>$\mathrm{d}S$</strong>: Cambio infinitesimal de entropía</p>
+                                <p><strong>$\mathrm{d}Q$</strong>: Calor transferido en proceso reversible</p>
+                                <p><strong>$T$</strong>: Temperatura absoluta (K)</p>
+                            </div>
+                        </div>
+
+                        <div class="cases-explanation">
+                            <p>Por eso:</p>
+                            <ul>
+                                <li>Si la temperatura es constante, la expresión se simplifica.</li>
+                                <li>Si la temperatura cambia, debe utilizarse una integral, porque cada porción de calor entra a un valor distinto de T.</li>
+                            </ul>
+                            <p>A continuación, se presentan los casos más comunes:</p>
+                        </div>
+
+                        <div class="cases-accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span>a) Proceso isotérmico (temperatura constante)</span>
+                                    <span class="accordion-icon">▼</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <p>Cuando la temperatura del sistema permanece fija, T puede sacarse fuera de la integral:</p>
+                                    
+                                    <div class="formula-box">
+                                        <div class="formula-medium">\[\Delta S = \frac{Q}{T}\]</div>
+                                    </div>
+
+                                    <p>Este caso es muy frecuente cuando ocurre un cambio de fase, como fusión o vaporización. En esos procesos, la sustancia absorbe o libera calor sin cambiar de temperatura, y:</p>
+
+                                    <div class="formula-box">
+                                        <div class="formula-medium">\[Q = Lm\]</div>
+                                        <div class="formula-vars">
+                                            <p><strong>$L$</strong>: calor latente (de fusión o vaporización)</p>
+                                            <p><strong>$m$</strong>: masa</p>
+                                        </div>
+                                    </div>
+
+                                    <p>Por lo tanto:</p>
+
+                                    <div class="formula-box">
+                                        <div class="formula-medium">\[\Delta S = \frac{Lm}{T}\]</div>
+                                    </div>
+
+                                    <div class="examples-box">
+                                        <h4>Ejemplos típicos:</h4>
+                                        <ul>
+                                            <li>Hielo fundiéndose a 0 °C</li>
+                                            <li>Agua hirviendo a 100 °C</li>
+                                            <li>Vapor condensándose a 100 °C</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span>b) Proceso con cambio de temperatura</span>
+                                    <span class="accordion-icon">▼</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <p>Cuando la temperatura varía entre un estado inicial y uno final, no es posible usar una única T. En este caso, se sustituye:</p>
+
+                                    <div class="formula-box">
+                                        <div class="formula-medium">\[\delta Q = mc \, dT\]</div>
+                                        <div class="formula-vars">
+                                            <p><strong>$m$</strong>: masa</p>
+                                            <p><strong>$c$</strong>: calor específico</p>
+                                            <p><strong>$dT$</strong>: cambio infinitesimal de temperatura</p>
+                                        </div>
+                                    </div>
+
+                                    <p>La entropía total se obtiene integrando:</p>
+
+                                    <div class="formula-box">
+                                        <div class="formula-medium">\[\Delta S = \int_{T_i}^{T_f} \frac{mc \, dT}{T}\]</div>
+                                    </div>
+
+                                    <p>Lo que da como resultado:</p>
+
+                                    <div class="formula-box">
+                                        <div class="formula-medium">\[\Delta S = mc \ln\left(\frac{T_f}{T_i}\right)\]</div>
+                                    </div>
+
+                                    <p>Este tipo de cálculo es típico cuando una sustancia se calienta o enfría sin cambio de fase (por ejemplo, de 20 °C a 80 °C).</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span>c) Entropía del universo</span>
+                                    <span class="accordion-icon">▼</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <p>Para evaluar la irreversibilidad de un proceso, se calcula el cambio total:</p>
+
+                                    <div class="formula-box">
+                                        <div class="formula-medium">\[\Delta S_{\text{univ}} = \Delta S_{\text{sist}} + \Delta S_{\text{ent}}\]</div>
+                                    </div>
+
+                                    <div class="interpretation-box">
+                                        <h4>Interpretación:</h4>
+                                        <div class="interpretation-items">
+                                            <div class="interpretation-item">
+                                                <div class="interpretation-symbol">=</div>
+                                                <p>$\Delta S_{\text{univ}} = 0$ → proceso reversible</p>
+                                            </div>
+                                            <div class="interpretation-item">
+                                                <div class="interpretation-symbol">></div>
+                                                <p>$\Delta S_{\text{univ}} > 0$ → proceso irreversible (real)</p>
+                                            </div>
+                                            <div class="interpretation-item">
+                                                <div class="interpretation-symbol">✗</div>
+                                                <p>$\Delta S_{\text{univ}} < 0$ → imposible, violaría la Segunda Ley</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta de verificación -->
+                <div class="verification-quiz">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>📝 Verifica tu comprensión</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="quiz-question">
+                                <p class="quiz-question-text">Si $\Delta S_{\text{univ}} = 0$ para un proceso, ¿qué podemos concluir?</p>
+                                <div class="quiz-options">
+                                    <button class="quiz-option" data-correct="false">El proceso es imposible según la Segunda Ley</button>
+                                    <button class="quiz-option" data-correct="true">El proceso es reversible</button>
+                                    <button class="quiz-option" data-correct="false">El proceso es irreversible</button>
+                                    <button class="quiz-option" data-correct="false">La entropía del sistema disminuyó</button>
+                                </div>
+                                <div class="quiz-explanation">
+                                    <p><strong>Correcto!</strong> Si $\Delta S_{\text{univ}} = 0$, significa que el cambio total de entropía del universo es cero, lo cual caracteriza a un proceso reversible. En un proceso reversible, no se genera entropía y el sistema puede volver exactamente a su estado inicial sin dejar rastro. En contraste, los procesos irreversibles (reales) siempre tienen $\Delta S_{\text{univ}} > 0$, y es imposible que $\Delta S_{\text{univ}} < 0$, ya que violaría la Segunda Ley.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>Material de estudio interactivo para el curso Física General III</p>
+                <p>Profesora Évar Elena Sevilla Quesada</p>
+                <p>Instituto Tecnológico de Costa Rica</p>
+            </footer>
+
+        </div>
+
+        <!-- Botón flotante para volver arriba -->
+        <button class="scroll-top" id="scrollTop">↑</button>
+    </main>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+
