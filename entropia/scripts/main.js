@@ -210,13 +210,9 @@ function initQuizzes() {
                     explanation.classList.add('show');
                 }
             } else {
-                // Mark as incorrect but don't disable it, allow user to try again
+                // Mark as incorrect - keep it marked in red
                 this.classList.add('incorrect');
-                
-                // Remove incorrect class after a short delay to allow retry
-                setTimeout(() => {
-                    this.classList.remove('incorrect');
-                }, 1000);
+                this.disabled = true;
                 
                 // Don't show correct answer or explanation - user must keep trying
             }
@@ -275,4 +271,5 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
+
 
